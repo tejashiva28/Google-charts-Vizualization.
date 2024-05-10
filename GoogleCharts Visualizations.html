@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Charts Visualization</title>
+    <!-- Load Google Charts library -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <!-- Bar Chart Container -->
+    <div id="barChartContainer" style="width: 800px; height: 400px;"></div>
+
+    <!-- Pie Chart Container -->
+    <div id="pieChartContainer" style="width: 800px; height: 400px;"></div>
+
+    <!-- Google Charts Code -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            // Sample data (replace with your actual data)
+            var incidentData = [
+                ['Incident', 'Count'],
+                ['Abuse', 100],
+                ['Assault', 75],
+                // Add more data rows as needed
+            ];
+
+            var perpetratorData = [
+                ['Perpetrator', 'Count'],
+                ['John Doe', 50],
+                ['Jane Smith', 40],
+                // Add more data rows as needed
+            ];
+
+            // Draw Bar Chart
+            var barData = google.visualization.arrayToDataTable(incidentData);
+            var barOptions = {
+                title: 'Occurrences of Incidents',
+                legend: { position: 'top' }
+            };
+            var barChart = new google.visualization.BarChart(document.getElementById('barChartContainer'));
+            barChart.draw(barData, barOptions);
+
+            // Draw Pie Chart
+            var pieData = google.visualization.arrayToDataTable(perpetratorData);
+            var pieOptions = {
+                title: 'Occurrences of Perpetrators',
+                legend: { position: 'top' }
+            };
+            var pieChart = new google.visualization.PieChart(document.getElementById('pieChartContainer'));
+            pieChart.draw(pieData, pieOptions);
+        }
+    </script>
+</body>
+</html>

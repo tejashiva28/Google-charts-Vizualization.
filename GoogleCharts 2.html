@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Charts Visualization</title>
+    <!-- Load Google Charts library -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <!-- Chart Container -->
+    <div id="chartContainer" style="width: 100%; height: 400px;"></div>
+
+    <!-- Google Charts Code -->
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Sample data (replace with your actual data)
+            var data = google.visualization.arrayToDataTable([
+                ['Perpetrator', 'Abuse', 'Assault', 'AssaultSuicide', 'AbuseMass ConversionBlackmail',
+                 'AbuseLove JihadAssaultFake Identity', 'AbductionLove JihadRapeFake IdentityBlackmail',
+                 'Vandalism', 'Love Jihad', 'MurderAssault', 'AbuseRapeAssault', 'Encroachment',
+                 'AbuseDestructionVandalismAssault', 'Abduction', 'AbductionMurderRapeAssault',
+                 'AbuseThreatAssault', 'Religious BullyingAbuse Deities', 'DestructionVandalism',
+                 'AbductionAbuseRape', 'BullyAbuse Deities', 'AbductionOther', 'Mass Conversion', 'Murder'],
+                ['Muslim Individual', 10, 20, 15, 5, 8, 12, 18, 22, 30, 25, 10, 15, 20, 5, 10, 12, 8, 15, 18, 20, 10, 15],
+                ['Muslim Mob', 15, 25, 18, 8, 10, 20, 25, 30, 35, 28, 15, 18, 22, 8, 12, 15, 10, 20, 25, 18, 12, 22],
+                ['Christian Missionary', 8, 12, 10, 5, 6, 10, 15, 18, 20, 18, 8, 10, 12, 5, 8, 10, 6, 12, 15, 12, 8, 10]
+                // Add more data rows as needed
+            ]);
+
+            var options = {
+                title: 'Incidents by Perpetrator',
+                isStacked: true,
+                legend: { position: 'top' },
+                width: '100%',
+                height: 400
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('chartContainer'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+</html>
